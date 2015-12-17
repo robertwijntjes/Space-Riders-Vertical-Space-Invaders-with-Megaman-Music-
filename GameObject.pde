@@ -1,15 +1,13 @@
-// This is the base class! 
-// Everything in the scene will extend GameObject
-
+//Runs everything
 class GameObject
 {
   PVector pos;
   PVector forward;
-  float theta = 0.0f;
   float w;
   float halfW;
   float speed = 5.0f;
   color c; 
+  float theta = 0.0f;
  
   GameObject()
   {
@@ -21,15 +19,17 @@ class GameObject
   {
     pos = new PVector(x, y);
     forward = new PVector(0, -1);
-    this.w = w; // Disambiguate w by using this
+    this.w = w;
     this.halfW = w * 0.5f;
   }
   
   void update()
   {
+
   }
   
   void render()
   {
+    
   }  
 }

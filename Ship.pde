@@ -1,4 +1,4 @@
-// The class name starts with uppercase
+
 class Ship extends GameObject
 {
   // Fields!
