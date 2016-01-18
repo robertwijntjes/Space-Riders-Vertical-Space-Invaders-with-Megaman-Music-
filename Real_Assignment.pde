@@ -15,7 +15,7 @@ void setup()
   player = minim.loadFile("gunfire.mp3");
   input = minim.getLineIn();
 
-  Ship ship = new Ship('W', 'S', 'A', 'D', ' ', 200, height / 2);
+  Ship ship = new Ship( 'W', 'S', 'A', 'D', ' ', width/2, height/1.2f );
   gameObjects.add(ship);
 }
 
@@ -26,10 +26,10 @@ void draw()
   if (frameCount == 60)
   {
 
-    for (int i = 0; i < 2; i ++)
+    for (int i = 0; i < 1; i ++)
     {
       Roid roid = new Roid(
-      random(10, 700), random(10, 300));
+      random(25, 675), random(25, 300));
       gameObjects.add(roid);
     }
     frameCount = 0;
@@ -37,13 +37,13 @@ void draw()
 
   for (int i = gameObjects.size () - 1; i >= 0; i --)
   {
-    GameObject go = gameObjects.get(i);
-    go.update();
-    go.render();
-    /*if(gameObjects.get(i).pos.x)
-    {
-    }*/
+    GameObject runAll = gameObjects.get(i);
+    runAll.update();
+    runAll.render();
   }
+  println("size: " + gameObjects.size());
+  collisionRoid();
+  collisionShip();
 }  
 
 void keyPressed()
@@ -55,5 +55,49 @@ void keyReleased()
 {
   keys[keyCode] = false;
 }  
+
+void collisionRoid()
+{
+  for (int i = gameObjects.size () - 1; i >= 0; i --)
+  {
+    GameObject tis = gameObjects.get(i);
+    if (tis instanceof Bullet)
+    {
+      for (int j = gameObjects.size () - 1; j >= 0; j --)
+      {
+        GameObject other = gameObjects.get(j);
+        if (other instanceof Roid)
+        {
+          if ( tis.pos.y <= other.y && tis.pos.x > other.x && tis.pos.x < other.x + 25  )
+          {
+              gameObjects.remove(other);
+          }
+        }
+      }
+    }
+  }
+}
+
+void collisionShip()
+{
+  for (int i = gameObjects.size () - 1; i >= 0; i --)
+  {
+    GameObject tis = gameObjects.get(i);
+    if (tis instanceof Ship)
+    {
+      for (int j = gameObjects.size () - 1; j >= 0; j --)
+      {
+        GameObject other = gameObjects.get(j);
+        if (other instanceof Roid)
+        {
+          if(tis.pos.y - 50 <= other.y && tis.pos.x > other.x && tis.pos.x < other.x + 25  )
+          {
+            gameObjects.remove(tis);
+          }
+        }
+      }
+    }
+  }
+}
 
 

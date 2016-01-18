@@ -11,7 +11,6 @@ class Bullet extends GameObject
     pushMatrix();
     stroke(255, 0, 0);
     translate(pos.x, pos.y);
-    //rotate(theta);
     line(0, -5, 0, 10);
     popMatrix();
   }
