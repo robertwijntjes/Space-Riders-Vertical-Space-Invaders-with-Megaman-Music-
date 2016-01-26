@@ -9,10 +9,11 @@ class Roid extends GameObject
   void update()
   {
     y++;
-    if(y + 30 > height)
-    {
+    /*if(y + 30 > height)
+    {   
       gameObjects.remove(this);
-    }
+      lives--;
+    }*/
   }
 
   void render()

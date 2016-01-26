@@ -1,4 +1,3 @@
-
 class Ship extends GameObject
 {
   char forwards;
@@ -10,7 +9,7 @@ class Ship extends GameObject
 
   Ship()
   {
-    super(width * 0.5f, height  * 0.5f, 50);
+    //super(width * 0.5f, height  * 0.5f, 50);
   }
 
   Ship(char forwards, char backwards, char left, char right, char fire, float startX, float startY)
@@ -45,7 +44,7 @@ class Ship extends GameObject
     }  
     if (keys[left])
     {
-      pos.x = pos.x - shipSpeed;
+      pos.x = pos.x - shipSpeed;  
     }
     if (keys[right])
     {
@@ -64,7 +63,7 @@ class Ship extends GameObject
       elapsed = 0;
 
       player.play();
-      player = minim.loadFile("gunfire.mp3");
+      //player = minim.loadFile("gunfire.mp3");
     }
     if (pos.x < 0)
     {

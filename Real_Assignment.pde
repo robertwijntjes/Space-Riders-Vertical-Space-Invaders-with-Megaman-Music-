@@ -2,6 +2,9 @@ import ddf.minim.*;
 ArrayList<GameObject> gameObjects = new ArrayList<GameObject>();
 boolean[] keys = new boolean[512];
 boolean roidFall = true;
+int lives = 10;
+int score = 0;
+int diffi = 1;
 
 Minim minim;
 AudioPlayer player;
@@ -26,7 +29,7 @@ void draw()
   if (frameCount == 60)
   {
 
-    for (int i = 0; i < 1; i ++)
+    for (int i = 0; i < diffi; i ++)
     {
       Roid roid = new Roid(
       random(25, 675), random(25, 300));
@@ -41,9 +44,21 @@ void draw()
     runAll.update();
     runAll.render();
   }
-  println("size: " + gameObjects.size());
+  //println("size: " + gameObjects.size());
   collisionRoid();
   collisionShip();
+  difficultyCheck();
+  collisionRoidsEnd();
+  livesCheck();
+  if (lives >= 0)
+  {
+    text("Lives Left: " + lives, 600, 50);
+  } else
+  {
+    text("GAME OVER !", 600, 50);
+  }
+  text("Score: " +score, 600, 75);
+  println(diffi);
 }  
 
 void keyPressed()
@@ -70,7 +85,8 @@ void collisionRoid()
         {
           if ( tis.pos.y <= other.y && tis.pos.x > other.x && tis.pos.x < other.x + 25  )
           {
-              gameObjects.remove(other);
+            gameObjects.remove(other);
+            score++;
           }
         }
       }
@@ -90,7 +106,17 @@ void collisionShip()
         GameObject other = gameObjects.get(j);
         if (other instanceof Roid)
         {
-          if(tis.pos.y - 50 <= other.y && tis.pos.x > other.x && tis.pos.x < other.x + 25  )
+          if (tis.pos.y - 50 < other.y && tis.pos.y > other.y && tis.pos.x > other.x && tis.pos.x < other.x + 25  )
+          {
+            if (lives <= 0)
+            {
+              gameObjects.remove(tis);
+            }
+            lives--;
+            tis.pos.x = width/2;
+            tis.pos.y = height-height/4;
+          }
+          if(lives <= 0)
           {
             gameObjects.remove(tis);
           }
@@ -99,5 +125,42 @@ void collisionShip()
     }
   }
 }
+void collisionRoidsEnd()
+{
+  for (int i = gameObjects.size () - 1; i >= 0; i --)
+  {
+    GameObject tis = gameObjects.get(i);
+    if (tis instanceof Roid)
+    {
+      if (tis.y + 25 > height)
+      {
+        lives--;
+        gameObjects.remove(tis);
+      }
+    }
+  }
+}
 
+void livesCheck()
+{
+}
+void difficultyCheck()
+{
+  if (score == 35)
+  {
+    diffi = 2;
+  }
+  if (score == 75)
+  {
+    diffi = 3;
+  }
+  if (score == 150)
+  {
+    diffi = 4;
+  }
+  if (score == 200)
+  {
+    diffi = 5;
+  }
+}
 

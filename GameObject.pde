@@ -1,5 +1,5 @@
 //Runs everything
-class GameObject
+abstract class GameObject
 {
   PVector pos;
   PVector forward;
@@ -23,12 +23,10 @@ class GameObject
     this.widthH = w * 0.5f;
   }
 
-  void update()
-  {
-  }
+  abstract void update();
 
-  void render()
-  {
-  }
+
+  abstract void render();
+
 }
 

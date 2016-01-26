@@ -27,7 +27,7 @@ class Bullet extends GameObject
     {
       gameObjects.remove(this);
     }
-    println(pos.y);
+    //println(pos.y);
   }
 }
 
