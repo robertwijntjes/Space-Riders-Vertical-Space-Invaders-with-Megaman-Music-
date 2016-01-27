@@ -26,11 +26,9 @@ void setup()
 void draw()
 {
   background(0);
-  switch(mode)
+  if(mode == 1)
   {
-  case 1:
-    {
-      if (frameCount == 60)
+          if (frameCount == 60)
       {
 
         for (int i = 0; i < diffi; i ++)
@@ -41,6 +39,11 @@ void draw()
         }
         frameCount = 0;
       }
+  }
+  switch(mode)
+  {
+  case 1:
+    {
 
       for (int i = gameObjects.size () - 1; i >= 0; i --)
       {
@@ -48,7 +51,6 @@ void draw()
         runAll.update();
         runAll.render();
       }
-      //println("size: " + gameObjects.size());
       collisionRoid();
       collisionShip();
       difficultyCheck();
