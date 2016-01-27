@@ -9,7 +9,7 @@ abstract class GameObject
   float speed = 20;
   color colour;
   float theta = 0.0f;
-
+  float rRoid;
   GameObject()
   {
     this(width * 0.5f, height  * 0.5f, 50);
