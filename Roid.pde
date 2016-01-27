@@ -23,11 +23,11 @@ class Roid extends GameObject
     }
     if(rRoid == 2)
     {
-      rect(x,y,30,30);
+      image(img2, x, y, 30, 30);
     }
     if(rRoid == 3)
     {
-      ellipse(x,y,30,30);
+      image(img3, x, y, 30, 30);
     }
   }
 }

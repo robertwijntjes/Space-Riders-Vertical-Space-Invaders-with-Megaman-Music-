@@ -7,6 +7,8 @@ int score = 0;
 int diffi = 1;
 int mode = 0;
 PImage img;
+PImage img2;
+PImage img3;
 
 Minim minim;
 AudioPlayer player;
@@ -20,6 +22,8 @@ void setup()
   player = minim.loadFile("gunfire.mp3");
   input = minim.getLineIn();
   img = loadImage("Roid.jpg");
+  img2 = loadImage("Roid2.jpg");
+  img3 = loadImage("roid3.jpg");
 
   Ship ship = new Ship( 'W', 'S', 'A', 'D', ' ', width/2, height/1.2f );
   gameObjects.add(ship);
