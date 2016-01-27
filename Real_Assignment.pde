@@ -6,6 +6,7 @@ int lives = 10;
 int score = 0;
 int diffi = 1;
 int mode = 0;
+PImage img;
 
 Minim minim;
 AudioPlayer player;
@@ -18,6 +19,7 @@ void setup()
   minim = new Minim(this);
   player = minim.loadFile("gunfire.mp3");
   input = minim.getLineIn();
+  img = loadImage("Roid.jpg");
 
   Ship ship = new Ship( 'W', 'S', 'A', 'D', ' ', width/2, height/1.2f );
   gameObjects.add(ship);
