@@ -9,17 +9,14 @@ class Roid extends GameObject
   void update()
   {
     y++;
-    /*if(y + 30 > height)
-    {   
-      gameObjects.remove(this);
-      lives--;
-    }*/
   }
 
   void render()
   {
     stroke(0);
-    rect(x, y, 30, 30);
+    image(img, x, y, 30, 30);
+    fill(150);
+    
   }
 }
 
