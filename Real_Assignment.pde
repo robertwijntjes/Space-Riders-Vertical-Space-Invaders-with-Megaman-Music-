@@ -26,25 +26,23 @@ void setup()
 void draw()
 {
   background(0);
-  if(mode == 1)
-  {
-          if (frameCount == 60)
-      {
-
-        for (int i = 0; i < diffi; i ++)
-        {
-          Roid roid = new Roid(
-          random(25, 675), random(25, 300));
-          gameObjects.add(roid);
-        }
-        frameCount = 0;
-      }
-  }
   switch(mode)
   {
+  case 0:
+    {
+      background(0);
+      textSize(45);
+      text("Space Impact", width/2-110, 100);
+      textSize(15);
+      text("W/A/S/D : Forward/Left/Backwards/Right",width/2-110,200);
+      text("SpaceBar : Shoot",width/2-110,225);
+      text("Lose 1 life when impact on asteroid or \nasteroid is allowed to hit planet",width/2-110,275);
+      textSize(10);
+      text("1 : to remove",width/2-110,325);
+    }
   case 1:
     {
-
+      textSize(12);
       for (int i = gameObjects.size () - 1; i >= 0; i --)
       {
         GameObject runAll = gameObjects.get(i);
@@ -64,9 +62,20 @@ void draw()
         text("GAME OVER !", 600, 50);
       }
       text("Score: " +score, 600, 75);
-      println(diffi);
+    }
+        if (frameCount == 60)
+    {
+
+      for (int i = 0; i < diffi; i ++)
+      {
+        Roid roid = new Roid(
+        random(25, 675), random(25, 300));
+        gameObjects.add(roid);
+      }
+      frameCount = 0;
     }
   }
+
 }  
 
 void keyPressed()
@@ -175,5 +184,4 @@ void difficultyCheck()
     diffi = 5;
   }
 }
-
 
