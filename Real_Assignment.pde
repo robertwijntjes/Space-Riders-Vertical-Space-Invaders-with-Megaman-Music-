@@ -5,6 +5,7 @@ boolean roidFall = true;
 int lives = 10;
 int score = 0;
 int diffi = 1;
+int mode = 0;
 
 Minim minim;
 AudioPlayer player;
@@ -25,45 +26,54 @@ void setup()
 void draw()
 {
   background(0);
-
-  if (frameCount == 60)
+  switch(mode)
   {
-
-    for (int i = 0; i < diffi; i ++)
+  case 1:
     {
-      Roid roid = new Roid(
-      random(25, 675), random(25, 300));
-      gameObjects.add(roid);
-    }
-    frameCount = 0;
-  }
+      if (frameCount == 60)
+      {
 
-  for (int i = gameObjects.size () - 1; i >= 0; i --)
-  {
-    GameObject runAll = gameObjects.get(i);
-    runAll.update();
-    runAll.render();
+        for (int i = 0; i < diffi; i ++)
+        {
+          Roid roid = new Roid(
+          random(25, 675), random(25, 300));
+          gameObjects.add(roid);
+        }
+        frameCount = 0;
+      }
+
+      for (int i = gameObjects.size () - 1; i >= 0; i --)
+      {
+        GameObject runAll = gameObjects.get(i);
+        runAll.update();
+        runAll.render();
+      }
+      //println("size: " + gameObjects.size());
+      collisionRoid();
+      collisionShip();
+      difficultyCheck();
+      collisionRoidsEnd();
+      livesCheck();
+      if (lives >= 0)
+      {
+        text("Lives Left: " + lives, 600, 50);
+      } else
+      {
+        text("GAME OVER !", 600, 50);
+      }
+      text("Score: " +score, 600, 75);
+      println(diffi);
+    }
   }
-  //println("size: " + gameObjects.size());
-  collisionRoid();
-  collisionShip();
-  difficultyCheck();
-  collisionRoidsEnd();
-  livesCheck();
-  if (lives >= 0)
-  {
-    text("Lives Left: " + lives, 600, 50);
-  } else
-  {
-    text("GAME OVER !", 600, 50);
-  }
-  text("Score: " +score, 600, 75);
-  println(diffi);
 }  
 
 void keyPressed()
 {
   keys[keyCode] = true;
+  if (key >= '0' && key <='9')
+  {
+    mode = key - '0';
+  }
 }
 
 void keyReleased()
@@ -116,7 +126,7 @@ void collisionShip()
             tis.pos.x = width/2;
             tis.pos.y = height-height/4;
           }
-          if(lives <= 0)
+          if (lives <= 0)
           {
             gameObjects.remove(tis);
           }
@@ -163,4 +173,5 @@ void difficultyCheck()
     diffi = 5;
   }
 }
+
 
