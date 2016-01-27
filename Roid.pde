@@ -12,13 +12,23 @@ class Roid extends GameObject
   void update()
   {
     y++;
-    println(rRoid);
   }
 
   void render()
   {
     stroke(0);
-    image(img, x, y, 30, 30);
+    if(rRoid == 1)
+    {
+      image(img, x, y, 30, 30);
+    }
+    if(rRoid == 2)
+    {
+      rect(x,y,30,30);
+    }
+    if(rRoid == 3)
+    {
+      ellipse(x,y,30,30);
+    }
   }
 }
 
