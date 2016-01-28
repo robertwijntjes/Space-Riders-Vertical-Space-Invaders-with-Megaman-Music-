@@ -6,6 +6,7 @@ int lives = 10;
 int score = 0;
 int diffi = 1;
 int mode = 0;
+int highscore = 0;
 PImage img;
 PImage img2;
 PImage img3;
@@ -13,6 +14,8 @@ PImage img3;
 Minim minim;
 AudioPlayer player;
 AudioInput input;
+AudioPlayer title;
+AudioPlayer intro;
 
 void setup()
 {
@@ -20,6 +23,8 @@ void setup()
 
   minim = new Minim(this);
   player = minim.loadFile("gunfire.mp3");
+  title = minim.loadFile("title.mp3");
+  intro = minim.loadFile("intro.mp3");
   input = minim.getLineIn();
   img = loadImage("Roid.jpg");
   img2 = loadImage("Roid2.jpg");
@@ -36,18 +41,28 @@ void draw()
   {
   case 0:
     {
+      if (mode == 0)
+      {
+        intro.play();
+      }
       background(0);
       textSize(45);
       text("Space Impact", width/2-110, 100);
       textSize(15);
-      text("W/A/S/D : Forward/Left/Backwards/Right",width/2-110,200);
-      text("SpaceBar : Shoot",width/2-110,225);
-      text("Lose 1 life when impact on asteroid or \nasteroid is allowed to hit planet",width/2-110,275);
+      text("W/A/S/D : Forward/Left/Backwards/Right", width/2-110, 200);
+      text("SpaceBar : Shoot", width/2-110, 225);
+      text("Lose 1 life when impact on asteroid or \nasteroid is allowed to hit planet", width/2-110, 275);
       textSize(10);
-      text("1 : to remove",width/2-110,325);
+      text("1 : to remove", width/2-110, 325);
     }
   case 1:
     {
+      if (mode == 1)
+      {
+        intro.close();
+        title.play();
+      }
+
       textSize(12);
       for (int i = gameObjects.size () - 1; i >= 0; i --)
       {
@@ -60,7 +75,7 @@ void draw()
       difficultyCheck();
       collisionRoidsEnd();
       livesCheck();
-      if (lives >= 0)
+      if (lives > 0)
       {
         text("Lives Left: " + lives, 600, 50);
       } else
@@ -69,19 +84,21 @@ void draw()
       }
       text("Score: " +score, 600, 75);
     }
-        if (frameCount == 60)
+    if (mode == 1)
     {
-
-      for (int i = 0; i < diffi; i ++)
+      if (frameCount %60 == 0)
       {
-        Roid roid = new Roid(
-        random(25, 675), random(25, 300));
-        gameObjects.add(roid);
+
+        for (int i = 0; i < diffi; i ++)
+        {
+          Roid roid = new Roid(
+          random(25, 675), random(25, 300));
+          gameObjects.add(roid);
+        }
+        frameCount = 0;
       }
-      frameCount = 0;
     }
   }
-
 }  
 
 void keyPressed()
