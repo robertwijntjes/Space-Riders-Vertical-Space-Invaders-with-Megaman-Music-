@@ -1,4 +1,5 @@
 import ddf.minim.*;
+
 ArrayList<GameObject> gameObjects = new ArrayList<GameObject>();
 boolean[] keys = new boolean[512];
 boolean roidFall = true;
@@ -11,11 +12,12 @@ PImage img;
 PImage img2;
 PImage img3;
 
+
 Minim minim;
 AudioPlayer player;
 AudioInput input;
-AudioPlayer title;
 AudioPlayer intro;
+AudioPlayer title;
 
 void setup()
 {
@@ -41,10 +43,6 @@ void draw()
   {
   case 0:
     {
-      if (mode == 0)
-      {
-        intro.play();
-      }
       background(0);
       textSize(45);
       text("Space Impact", width/2-110, 100);
@@ -54,15 +52,25 @@ void draw()
       text("Lose 1 life when impact on asteroid or \nasteroid is allowed to hit planet", width/2-110, 275);
       textSize(10);
       text("1 : to remove", width/2-110, 325);
+      if (mode == 0)
+      {
+        intro.play();
+      }
     }
   case 1:
     {
-      if (mode == 1)
-      {
-        intro.close();
-        title.play();
+        if (mode == 1)
+        {
+          intro.close();
+          title.play();
+          if(frameCount %2560 == 0)
+          {
+            title.rewind();
+            title.loop();
+          }
+          
+        
       }
-
       textSize(12);
       for (int i = gameObjects.size () - 1; i >= 0; i --)
       {
@@ -98,6 +106,7 @@ void draw()
         frameCount = 0;
       }
     }
+    musicPlayer();
   }
 }  
 
@@ -206,5 +215,9 @@ void difficultyCheck()
   {
     diffi = 5;
   }
+}
+
+void musicPlayer()
+{
 }
 
