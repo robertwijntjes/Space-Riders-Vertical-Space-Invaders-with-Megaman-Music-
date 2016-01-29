@@ -216,6 +216,26 @@ void difficultyCheck()
   {
     diffi = 5;
   }
+  if(score == 300)
+  {
+    diffi = 6;
+  }
+  if(score == 400)
+  {
+    diffi = 7;
+  }
+  if(sore == 500)
+  {
+    diffi = 8;
+  }
+   if(score == 600)
+   {
+     diffi = 9;
+   }
+   if(score == 700)
+   {
+     diffi = 10;
+   }
 }
 
 void musicPlayer()
