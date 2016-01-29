@@ -19,15 +19,15 @@ class Roid extends GameObject
     stroke(0);
     if(rRoid == 1)
     {
-      image(img, x, y, 30, 30);
+      image(img, x + 15, y, 30, 30);
     }
     if(rRoid == 2)
     {
-      image(img2, x, y, 30, 30);
+      image(img2, x + 15, y, 30, 30);
     }
     if(rRoid == 3)
     {
-      image(img3, x, y, 30, 30);
+      image(img3, x + 15, y, 30, 30);
     }
   }
 }

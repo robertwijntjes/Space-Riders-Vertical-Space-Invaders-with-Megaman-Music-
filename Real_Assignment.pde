@@ -11,6 +11,7 @@ int highscore = 0;
 PImage img;
 PImage img2;
 PImage img3;
+PImage img4;
 
 
 Minim minim;
@@ -31,6 +32,9 @@ void setup()
   img = loadImage("Roid.jpg");
   img2 = loadImage("Roid2.jpg");
   img3 = loadImage("roid3.jpg");
+  img4 = loadImage("spaceship.png");
+  img4.resize(50,50);
+  imageMode(CENTER);
 
   Ship ship = new Ship( 'W', 'S', 'A', 'D', ' ', width/2, height/1.2f );
   gameObjects.add(ship);
@@ -54,21 +58,16 @@ void draw()
       text("1 : to remove", width/2-110, 325);
       if (mode == 0)
       {
-        intro.play();
+        //intro.play();
       }
     }
   case 1:
     {
         if (mode == 1)
         {
-          intro.close();
-          title.play();
-          if(frameCount %2560 == 0)
-          {
-            title.rewind();
-            title.loop();
-          }
-          
+          //intro.close();
+          //title.play();
+          //title.loop();          
         
       }
       textSize(12);

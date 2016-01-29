@@ -82,10 +82,7 @@ class Ship extends GameObject
     pushMatrix();
     translate(pos.x, pos.y);    
     stroke(0, 100, 255);
-    line(- widthH, widthH, 0, - widthH);
-    line(0, - widthH, widthH, widthH);
-    line(widthH, widthH, 0, 0);
-    line(- widthH, widthH, 0, 0);
+    image(img4,0,0);
     popMatrix();
   }
 }
