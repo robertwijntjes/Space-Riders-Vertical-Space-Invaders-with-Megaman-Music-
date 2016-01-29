@@ -12,6 +12,7 @@ PImage img;
 PImage img2;
 PImage img3;
 PImage img4;
+PImage img5;
 
 
 Minim minim;
@@ -33,6 +34,7 @@ void setup()
   img2 = loadImage("Roid2.jpg");
   img3 = loadImage("roid3.jpg");
   img4 = loadImage("spaceship.png");
+  img5 = loadImage("pewpewpew.png");
   img4.resize(50,50);
   imageMode(CENTER);
 
