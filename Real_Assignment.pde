@@ -224,7 +224,7 @@ void difficultyCheck()
   {
     diffi = 7;
   }
-  if(sore == 500)
+  if(score == 500)
   {
     diffi = 8;
   }
