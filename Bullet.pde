@@ -13,6 +13,7 @@ class Bullet extends GameObject
     translate(pos.x, pos.y);
     line(0, -5, 0, 10);
     popMatrix();
+    //Renders Bullet as Line rather than image for more accuracy.
   }
 
   void update()
@@ -29,5 +30,6 @@ class Bullet extends GameObject
     }
     
   }
+  //Shows the Bullet Physics.
 }
 

@@ -12,6 +12,7 @@ class Roid extends GameObject
   void update()
   {
     y++;
+    //Asteroid Physics.
   }
 
   void render()
@@ -30,5 +31,7 @@ class Roid extends GameObject
       image(img3, x + 15, y, 30, 30);
     }
   }
+  //Asteroid class as Images..as it holds the same physics of a square.
+  //Self drawn Asteroids..
 }
 

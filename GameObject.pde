@@ -24,9 +24,8 @@ abstract class GameObject
   }
 
   abstract void update();
-
-
   abstract void render();
-
+  //Abstract update and render
+  //Also acts as base class for the package.
 }
 

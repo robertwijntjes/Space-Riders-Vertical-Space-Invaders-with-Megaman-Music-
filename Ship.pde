@@ -75,6 +75,7 @@ class Ship extends GameObject
       pos.x = 0;
     }
     elapsed ++;
+    //All the ships controls aswell as sound effects for generation of a bullet.
   }
 
   void render()
@@ -84,6 +85,7 @@ class Ship extends GameObject
     stroke(0, 100, 255);
     image(img4,0,0);
     popMatrix();
+    //Renders the ship as an image
   }
 }
 
