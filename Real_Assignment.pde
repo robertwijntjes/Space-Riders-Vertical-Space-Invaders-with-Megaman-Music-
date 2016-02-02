@@ -1,4 +1,5 @@
 import ddf.minim.*;
+//Added in Library
 
 ArrayList<GameObject> gameObjects = new ArrayList<GameObject>();
 boolean[] keys = new boolean[512];
@@ -8,11 +9,14 @@ int score = 0;
 int diffi = 1;
 int mode = 0;
 int highscore = 0;
+//Global Variables
+
 PImage img;
 PImage img2;
 PImage img3;
 PImage img4;
 PImage img5;
+//Adding Images
 
 
 Minim minim;
@@ -20,6 +24,7 @@ AudioPlayer player;
 AudioInput input;
 AudioPlayer intro;
 AudioPlayer title;
+//Initialising Minims
 
 void setup()
 {
@@ -37,9 +42,11 @@ void setup()
   img5 = loadImage("pewpewpew.png");
   img4.resize(50,50);
   imageMode(CENTER);
+  //Adds in Static Features
 
   Ship ship = new Ship( 'W', 'S', 'A', 'D', ' ', width/2, height/1.2f );
   gameObjects.add(ship);
+  //Initialise the Ship Object
 }
 
 void draw()
@@ -63,6 +70,7 @@ void draw()
         intro.play();
       }
     }
+    //Case 1 for Menu and sound effects
   case 1:
     {
         if (mode == 1)
@@ -107,6 +115,7 @@ void draw()
       }
     }
   }
+  //Case 1 for full game and sound effects
 }  
 
 void keyPressed()
@@ -116,6 +125,7 @@ void keyPressed()
   {
     mode = key - '0';
   }
+  //To recognise pressed keys
 }
 
 void keyReleased()
