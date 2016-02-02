@@ -60,16 +60,15 @@ void draw()
       text("1 : to remove", width/2-110, 325);
       if (mode == 0)
       {
-        //intro.play();
+        intro.play();
       }
     }
   case 1:
     {
         if (mode == 1)
         {
-          //intro.close();
-          //title.play();
-          //title.loop();          
+          intro.close();
+          title.play();       
         
       }
       textSize(12);
@@ -107,7 +106,6 @@ void draw()
         frameCount = 0;
       }
     }
-    musicPlayer();
   }
 }  
 
@@ -237,8 +235,3 @@ void difficultyCheck()
      diffi = 10;
    }
 }
-
-void musicPlayer()
-{
-}
-

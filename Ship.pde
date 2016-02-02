@@ -63,7 +63,7 @@ class Ship extends GameObject
       elapsed = 0;
 
       player.play();
-      //player = minim.loadFile("gunfire.mp3");
+      player = minim.loadFile("gunfire.mp3");
     }
     if (pos.x < 0)
     {
