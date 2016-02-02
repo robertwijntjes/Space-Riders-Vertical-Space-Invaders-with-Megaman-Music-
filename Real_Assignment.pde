@@ -131,6 +131,7 @@ void keyPressed()
 void keyReleased()
 {
   keys[keyCode] = false;
+  //Swtich to help with key recognition
 }  
 
 void collisionRoid()
@@ -154,6 +155,7 @@ void collisionRoid()
       }
     }
   }
+  //Collision from Bullet to Asteroid (Roid)
 }
 
 void collisionShip()
@@ -186,6 +188,7 @@ void collisionShip()
       }
     }
   }
+  //Collision from Ship to Asteroid (Roid)
 }
 void collisionRoidsEnd()
 {
@@ -201,6 +204,7 @@ void collisionRoidsEnd()
       }
     }
   }
+  //Check for off screen Roid Removal
 }
 
 void livesCheck()
@@ -242,6 +246,7 @@ void difficultyCheck()
    }
    if(score == 700)
    {
-     diffi = 10;
+     diffi 
    }
+   //Difficulty Meter.
 }
