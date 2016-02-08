@@ -101,6 +101,7 @@ void draw()
       {
         textSize(50);
         text("GAME OVER !", 300, 400);
+        title.close();
       }
       textSize(15);
       text("Score: " +score, 590, 75);
