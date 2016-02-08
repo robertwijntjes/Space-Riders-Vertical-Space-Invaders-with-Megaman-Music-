@@ -19,10 +19,6 @@ PImage img5;
 PImage img6;
 //Adding Images.
 
-PFont font;
-//adding custom fonts.
-
-
 Minim minim;
 AudioPlayer player;
 AudioInput input;
@@ -44,9 +40,10 @@ void setup()
   img3 = loadImage("roid3.jpg");
   img4 = loadImage("spaceship.png");
   img5 = loadImage("pewpewpew.png");
-  img4.resize(50,50);
+  img4.resize(50, 50);
   img6 = loadImage("Buttons.png");
   imageMode(CENTER);
+
   //Adds in Static Features
 
   Ship ship = new Ship( 'W', 'S', 'A', 'D', ' ', width/2, height/1.2f );
@@ -69,8 +66,8 @@ void draw()
       text("SpaceBar : Shoot", width/2-110, 225);
       text("Lose 1 life when impact on asteroid or \nasteroid is allowed to hit planet", width/2-110, 275);
       text("1 : To Begin Adventure.", width/2-110, 325);
-      text("2 : To End Adventure.",width/2-110,350);
-      image(img6,width/2 - 25,410,195,70);
+      text("2 : To End Adventure.", width/2-110, 350);
+      image(img6, width/2 - 25, 410, 195, 70);
       if (mode == 0)
       {
         intro.play();
@@ -79,11 +76,10 @@ void draw()
     //Case 1 for Menu and sound effects
   case 1:
     {
-        if (mode == 1)
-        {
-          intro.close();
-          title.play();       
-        
+      if (mode == 1)
+      {
+        intro.close();
+        title.play();
       }
       textSize(12);
       for (int i = gameObjects.size () - 1; i >= 0; i --)
@@ -99,12 +95,15 @@ void draw()
       livesCheck();
       if (lives > 0)
       {
-        text("Lives Left: " + lives, 600, 50);
+        textSize(15);
+        text("Lives Left: " + lives, 590, 50);
       } else
       {
-        text("GAME OVER !", 600, 50);
+        textSize(50);
+        text("GAME OVER !", 300, 400);
       }
-      text("Score: " +score, 600, 75);
+      textSize(15);
+      text("Score: " +score, 590, 75);
     }
     if (mode == 1)
     {
@@ -234,25 +233,26 @@ void difficultyCheck()
   {
     diffi = 5;
   }
-  if(score == 300)
+  if (score == 300)
   {
     diffi = 6;
   }
-  if(score == 400)
+  if (score == 400)
   {
     diffi = 7;
   }
-  if(score == 500)
+  if (score == 500)
   {
     diffi = 8;
   }
-   if(score == 600)
-   {
-     diffi = 9;
-   }
-   if(score == 700)
-   {
-     diffi = 10;
-   }
-   //Difficulty Meter.
+  if (score == 600)
+  {
+    diffi = 9;
+  }
+  if (score == 700)
+  {
+    diffi = 10;
+  }
+  //Difficulty Meter.
 }
+
