@@ -19,7 +19,7 @@ class Bullet extends GameObject
   void update()
   {
     forward.x = sin(0);
-    forward.y = - cos(speed);
+    forward.y = -cos(speed);
 
     forward.mult(speed);
     pos.add(forward);

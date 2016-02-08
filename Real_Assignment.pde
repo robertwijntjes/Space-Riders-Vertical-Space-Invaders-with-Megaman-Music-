@@ -9,14 +9,18 @@ int score = 0;
 int diffi = 1;
 int mode = 0;
 int highscore = 0;
-//Global Variables
+//Global Variables.
 
 PImage img;
 PImage img2;
 PImage img3;
 PImage img4;
 PImage img5;
-//Adding Images
+PImage img6;
+//Adding Images.
+
+PFont font;
+//adding custom fonts.
 
 
 Minim minim;
@@ -41,6 +45,7 @@ void setup()
   img4 = loadImage("spaceship.png");
   img5 = loadImage("pewpewpew.png");
   img4.resize(50,50);
+  img6 = loadImage("Buttons.png");
   imageMode(CENTER);
   //Adds in Static Features
 
@@ -63,8 +68,9 @@ void draw()
       text("W/A/S/D : Forward/Left/Backwards/Right", width/2-110, 200);
       text("SpaceBar : Shoot", width/2-110, 225);
       text("Lose 1 life when impact on asteroid or \nasteroid is allowed to hit planet", width/2-110, 275);
-      textSize(10);
-      text("1 : to remove", width/2-110, 325);
+      text("1 : To Begin Adventure.", width/2-110, 325);
+      text("2 : To End Adventure.",width/2-110,350);
+      image(img6,width/2 - 25,410,195,70);
       if (mode == 0)
       {
         intro.play();
@@ -246,7 +252,7 @@ void difficultyCheck()
    }
    if(score == 700)
    {
-     diffi 
+     diffi = 10;
    }
    //Difficulty Meter.
 }
