@@ -19,7 +19,9 @@ PImage img3;
 PImage img4;
 PImage img5;
 PImage img6;
+PImage img7;
 //Adding Images.
+
 Minim minim;
 AudioPlayer player;
 AudioInput input;
@@ -41,12 +43,12 @@ void setup()
   img = loadImage("Roid.jpg");
   img2 = loadImage("Roid2.jpg");
   img3 = loadImage("roid3.jpg");
+  img7 = loadImage("roid4.jpg");
   img4 = loadImage("spaceship.png");
   img5 = loadImage("pewpewpew.png");
   img4.resize(50, 50);
   img6 = loadImage("Buttons.png");
   imageMode(CENTER);
-
   //Adds in Static Features
 
   Ship ship = new Ship( 'W', 'S', 'A', 'D', ' ', width/2, height/1.2f );
@@ -95,7 +97,7 @@ void draw()
       collisionShip();
       difficultyCheck();
       collisionRoidsEnd();
-      livesCheck();
+      
       if (lives > 0)
       {
         textSize(15);
@@ -217,9 +219,6 @@ void collisionRoidsEnd()
   //Check for off screen Roid Removal
 }
 
-void livesCheck()
-{
-}
 void difficultyCheck()
 {
   if (score == 35)

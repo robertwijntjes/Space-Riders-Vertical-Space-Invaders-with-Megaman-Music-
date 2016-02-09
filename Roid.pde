@@ -3,7 +3,7 @@ class Roid extends GameObject
 
   Roid(float x, float y)
   {
-    this.rRoid = rRoid = random(1,3);
+    this.rRoid = rRoid = random(1,4);
     this.rRoid = round(rRoid);
     this.x = x;
     this.y = y;
@@ -30,6 +30,11 @@ class Roid extends GameObject
     {
       image(img3, x + 15, y, 30, 30);
     }
+    if(rRoid == 4)
+    {
+      image(img7, x + 15, y, 30, 30);
+    }
+    
   }
   //Asteroid class as Images..as it holds the same physics of a square.
   //Self drawn Asteroids..
