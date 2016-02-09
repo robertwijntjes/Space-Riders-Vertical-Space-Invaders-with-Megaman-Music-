@@ -2,7 +2,6 @@ import ddf.minim.*;
 //Added in Library
 
 ArrayList<GameObject> gameObjects = new ArrayList<GameObject>();
-ArrayList<highScore> scoreSheet = new ArrayList<highScore>();
 //ArrayList Init 
 
 boolean[] keys = new boolean[512];
@@ -64,7 +63,7 @@ void draw()
     {
       background(0);
       textSize(45);
-      text("Space Impact", width/2-110, 100);
+      text("Space Riders", width/2-110, 100);
       textSize(15);
       text("W/A/S/D : Forward/Left/Backwards/Right", width/2-110, 200);
       text("SpaceBar : Shoot", width/2-110, 225);
