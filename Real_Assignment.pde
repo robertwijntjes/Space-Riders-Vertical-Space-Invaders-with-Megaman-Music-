@@ -2,13 +2,16 @@ import ddf.minim.*;
 //Added in Library
 
 ArrayList<GameObject> gameObjects = new ArrayList<GameObject>();
+ArrayList<highScore> scoreSheet = new ArrayList<highScore>();
+//ArrayList Init 
+
 boolean[] keys = new boolean[512];
 boolean roidFall = true;
 int lives = 10;
 int score = 0;
 int diffi = 1;
 int mode = 0;
-int highscore = 0;
+int counter = 0;
 //Global Variables.
 
 PImage img;
@@ -18,12 +21,12 @@ PImage img4;
 PImage img5;
 PImage img6;
 //Adding Images.
-
 Minim minim;
 AudioPlayer player;
 AudioInput input;
 AudioPlayer intro;
 AudioPlayer title;
+AudioPlayer ending;
 //Initialising Minims
 
 void setup()
@@ -34,6 +37,7 @@ void setup()
   player = minim.loadFile("gunfire.mp3");
   title = minim.loadFile("title.mp3");
   intro = minim.loadFile("intro.mp3");
+  ending = minim.loadFile("gameover.mp3");
   input = minim.getLineIn();
   img = loadImage("Roid.jpg");
   img2 = loadImage("Roid2.jpg");
@@ -100,8 +104,9 @@ void draw()
       } else
       {
         textSize(50);
-        text("GAME OVER !", 300, 400);
+        text("GAME OVER !", 250, 400);
         title.close();
+        ending.play();
       }
       textSize(15);
       text("Score: " +score, 590, 75);
