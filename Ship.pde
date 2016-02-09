@@ -15,6 +15,7 @@ class Ship extends GameObject
   Ship(char forwards, char backwards, char left, char right, char fire, float startX, float startY)
   {
     super(startX, startY, 50);
+    
     this.backwards = backwards;
     this.forwards = forwards;
     this.left = left;
@@ -62,10 +63,10 @@ class Ship extends GameObject
       gameObjects.add(bullet);
       elapsed = 0;
 
-      player.play();
-      player = minim.loadFile("gunfire.mp3");
+      //player.play();
+      //player = minim.loadFile("gunfire.mp3");
     }
-    if (pos.x < 0)
+    if (pos.x < 0)  
     {
       pos.x = width;
     }

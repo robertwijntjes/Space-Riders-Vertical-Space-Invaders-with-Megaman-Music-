@@ -102,15 +102,16 @@ void draw()
       {
         textSize(15);
         text("Lives Left: " + lives, 590, 50);
+        text("Score: " +score, 590, 75);
       } else
       {
         textSize(50);
         text("GAME OVER !", 250, 400);
+        text("Score: " +score,250,500);
         title.close();
         ending.play();
       }
       textSize(15);
-      text("Score: " +score, 590, 75);
     }
     if (mode == 1)
     {
@@ -124,6 +125,13 @@ void draw()
           gameObjects.add(roid);
         }
         frameCount = 0;
+      }
+    }
+    case 2:
+    {
+      if(mode == 2)
+      {
+        exit();
       }
     }
   }
