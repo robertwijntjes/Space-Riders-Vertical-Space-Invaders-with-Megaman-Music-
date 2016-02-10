@@ -9,7 +9,7 @@ class Ship extends GameObject
 
   Ship()
   {
-    //super(width * 0.5f, height  * 0.5f, 50);
+    super(width * 0.5f, height  * 0.5f, 50);
   }
 
   Ship(char forwards, char backwards, char left, char right, char fire, float startX, float startY)

@@ -1,3 +1,11 @@
+/*
+
+  Name: Robert Wijntjes
+  C_Number: C14356786
+  Project: Game with encapsulation,inheritance and polymorphism.
+  Date: 10/02/2016.
+
+*/
 import ddf.minim.*;
 //Added in Library
 
