@@ -65,6 +65,7 @@ class Ship extends GameObject
 
       //player.play();
       //player = minim.loadFile("gunfire.mp3");
+      //Sound for bullets needs to be disabled to complete full game as there is memory problems.
     }
     if (pos.x < 0)  
     {

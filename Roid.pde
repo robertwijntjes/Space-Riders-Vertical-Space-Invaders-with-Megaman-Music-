@@ -12,9 +12,8 @@ class Roid extends GameObject
   void update()
   {
     y++;
-    //Asteroid Physics.
   }
-
+  //sends roid up towards the screen and then is removed and life --1.
   void render()
   {
     stroke(0);
@@ -37,6 +36,6 @@ class Roid extends GameObject
     
   }
   //Asteroid class as Images..as it holds the same physics of a square.
-  //Self drawn Asteroids..
+  //Self drawn Asteroids..and spawns using processing random generator and rounding.
 }
 
